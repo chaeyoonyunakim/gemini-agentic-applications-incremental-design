@@ -1,4 +1,4 @@
-# Gemini agentic applications incremental design
+# Gemini agentic applications incremental design workshop
 
 Support repo for a 2 hours 40 minutes workshop that was first given at Ahlen's GDG on February 22 2025.
 
