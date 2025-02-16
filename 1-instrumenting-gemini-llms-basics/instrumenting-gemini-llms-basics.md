@@ -64,6 +64,8 @@ python-dotenv
 ```
 
 - `pip install -r requirements.txt`
+- we will now work in an `app.py` file, that is to be run from the folder of this module
+- `cp .env.example .env` and fill in your API key obtained from Google AI Studio
 - get plain text response from text input using LangChain
 
 ```python
