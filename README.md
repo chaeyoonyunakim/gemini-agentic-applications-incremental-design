@@ -7,7 +7,7 @@ The workshop is split into 5 modules. Each module is in a separate subfolder. Id
 - [instrumenting Gemini LLMs basics](1-instrumenting-gemini-llms-basics/instrumenting-gemini-llms-basics.md)
 - [calling LLMs with tools](2-use-tools/use-tools.md)
 - [the ReAct pattern](3-react-pattern/react-pattern.md)
-- [the plan and execute pattern](4-the-plan-and-execute-pattern/the-plan-and-execute-pattern.md)
+- [the plan and execute pattern](4-plan-and-execute-pattern/plan-and-execute-pattern.md)
 - [multi-agent systems](5-multi-agent-systems/multi-agent-systems.md)
 
 ... all Python scripts are to be run from the folder of each module.
