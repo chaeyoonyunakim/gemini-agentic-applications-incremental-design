@@ -1,6 +1,6 @@
 app.py
 requirements.txt
-!5-multi-agent-systems/requirements.txt
 venv
 tmp.md
 .env
+chart_*.png

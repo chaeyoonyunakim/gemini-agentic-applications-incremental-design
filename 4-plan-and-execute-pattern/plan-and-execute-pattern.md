@@ -26,6 +26,7 @@ langchain-google-genai
 langgraph
 ollama
 pydantic
+python-dotenv
 ```
 
 - `pip install -r requirements.txt`
