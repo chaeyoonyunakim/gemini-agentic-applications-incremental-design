@@ -5,3 +5,4 @@ tmp.md
 .env
 chart_*.png
 !3-react-pattern/app.py
+!4-plan-and-execute-pattern/app.py
