@@ -51,7 +51,7 @@ curl \
 You can generate structured outputs real easily with the Gemini API with just a prompt and the specification of the output MIME type as `application/json`.
 To get a more consistent and deterministic output (with the LLM selecting the highest probability tokens), you need to use a lower `temperature`  if you are to use structured outputs in a production environment. You can also set the `topK` parameter (how many tokens to consider for generating each word) to 1 so that the LLM only selects the most probable token (greedy decoding).
 
-## unstructured text response vs structured output with Python code
+## unstructured text response vs structured output with Python code (LangChain/LangGraph)
 
 - from the folder `1-instrumenting-gemini-llms-basics`, run `python3 -m venv venv && source venv/bin/activate`
 - create a `requirements.txt` file with the following content:
