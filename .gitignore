@@ -4,3 +4,4 @@ venv
 tmp.md
 .env
 chart_*.png
+!3-react-pattern/app.py

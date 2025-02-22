@@ -95,6 +95,7 @@ def agent(state: MessagesState):
 - we are now ready to build our graph:
 
 ```python
+from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import MessagesState, StateGraph, START
 from langgraph.prebuilt import ToolNode, tools_condition
 
@@ -109,7 +110,8 @@ builder.add_conditional_edges(
     tools_condition,
 )
 builder.add_edge("tools", "agent")
-graph = builder.compile()
+memory = MemorySaver()
+graph = builder.compile(checkpointer=memory)
 ```
 
 - your full script should look like this:
@@ -213,7 +215,7 @@ result3 = graph.invoke(
 print(result3)
 ```
 
-- now, let's run a conversation within the same thread, to illustrate how the ReAct pattern allows for dynamic tool usage and a more natural conversation flow that re uses previous information obtained from all the conversation turns; for this we are going to slightly modify the tools and remove the different thread id for each interaction... notice that we also had to change the system prompt to bypass some model safeguards ^^:
+- now, let's run a conversation within the same thread, to illustrate how the ReAct pattern allows for dynamic tool usage and a more natural conversation flow that re uses previous information obtained from all the conversation turns using the `MemorySaver` checkpoints; for this we are going to slightly modify the tools and remove the different thread id for each interaction... notice that we also had to change the system prompt to bypass some model safeguards ^^:
 
 ```python
 # ... previous code ...
@@ -222,17 +224,23 @@ print(result3)
 def get_top_gainers_and_losers() -> str:
     """Get today's top gainers and losers in the market.
 
-    Use this tool to get the top gainers and losers in the market.
+    Returns:
+        str: A string containing information about top gaining and losing stocks for the day.
     """
-    return f"Apple lost 25% of its value today as Tim Cook died. The current stock price is $150."
+    return f"Apple is top loser today, it is valued now at $105."
 
 @tool
 def forecast_stock_price(initial_price: int) -> str:
     """Forecast the stock price of a given company.
 
-    Use this tool to forecast the stock price of a given company.
+    Args:
+        initial_price (int): The current stock price to base the forecast on
+
+    Returns:
+        str: A string containing the forecasted stock price
     """
     return f"${initial_price + random.randint(1, 5000)}."
+
 
 # ... previous code ...
 
