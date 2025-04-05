@@ -45,6 +45,14 @@ curl \
 }')
 ```
 
+For Windows, follow this:
+```bash
+curl \
+  -X POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY} \
+  -H 'Content-Type: application/json' \
+  -d @query.json
+```
+
 - you'll notice in the complete response object that you get citation metadata: this is because web search is a native Gemini 2 Flash tool that is called automatically by the model if required; however, you need to be aware that there are costs associated with this feature and that there is also a rate limit for grounding the LLM's responses with a web search when using the Gemini API
 
 - Structured outputs are very interesting when you need to integrate with existing systems or when you need to format information for whatever business logic you need to apply. For instance, you can parse data from documents, extract data from images, format unstructured text to feed a CRM, etc. 
