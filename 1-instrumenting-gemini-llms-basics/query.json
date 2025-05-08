@@ -1,0 +1,1 @@
+{ "contents": [ { "role": "user", "parts": [ { "text": "Tell me about Google. I need the cie description, the cie symbol, the sector, and the industry." } ] } ], "generationConfig": { "temperature": 0, "topK": 1, "maxOutputTokens": 8192, "responseMimeType": "application/json" } }
